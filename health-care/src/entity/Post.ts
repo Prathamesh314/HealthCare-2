@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-const postSchema = new mongoose.Schema({
+const postSchema = new Schema({
     title: {
         type: String,
         required: true,
@@ -16,10 +16,12 @@ const postSchema = new mongoose.Schema({
     },
     upload_date:{
         type:Date,
+        default: Date.now(),
+        required: true,
     },
     likes:{
         type: Number
     }
 });
 
-export const Post = mongoose.models.posts || mongoose.model("users",postSchema)
+export const Post = mongoose.models.posts || mongoose.model("posts",postSchema)
