@@ -13,6 +13,8 @@ export async function POST(req: NextRequest)
             userId
         });
 
+        medicine.save();
+
         return NextResponse.json({
             message: "Medicine added successfully",
             medicine: medicine,
@@ -27,7 +29,9 @@ export async function POST(req: NextRequest)
 export async function GET() {
     try {
         const medicines = await Medicine.find();
-        return NextResponse.json(medicines);
+        return NextResponse.json({
+            medicine: medicines
+        });
     } catch (error) {
         console.log("Some error occured...");
         console.log(error);

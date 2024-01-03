@@ -23,4 +23,4 @@ const medicineSchema = new Schema({
     }
 });
 
-export const Medicine = mongoose.models.medincine || mongoose.model("medicines", medicineSchema);
+export const Medicine = mongoose.models.medicine || mongoose.model("medicine",medicineSchema)

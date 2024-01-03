@@ -8,6 +8,8 @@ export async function POST(req: NextRequest) {
   const { email, password, role } = await req.json();
 
   try {
+
+    // user login
     if (role === "user") {
       const user = await User.findOne({
         email: email,
@@ -28,10 +30,8 @@ export async function POST(req: NextRequest) {
           _id: user?._id,
           name: user?.name,
         },
-        process.env.JWT_KEY || " "
+        process.env.JWT_KEY ?? " "
       );
-
-      //   console.log(token);
 
       const response = NextResponse.json({
         message: "Login Success",
@@ -47,7 +47,7 @@ export async function POST(req: NextRequest) {
     } 
     
     
-    
+    // doctor grind
     else {
       const doctor = await Doctor.findOne({
         email: email,
@@ -68,7 +68,7 @@ export async function POST(req: NextRequest) {
           _id: doctor?._id,
           name: doctor?.name,
         },
-        process.env.JWT_KEY || " "
+        process.env.JWT_KEY ?? " "
       );
 
       const response = NextResponse.json({
