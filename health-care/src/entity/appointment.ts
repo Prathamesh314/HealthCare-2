@@ -13,6 +13,10 @@ const appointmentSchema = new Schema({
     userID:{
         type: mongoose.Types.ObjectId,
         required: true,
+    },
+    docName:{
+        type: String,
+        required: true,
     }
 });
 

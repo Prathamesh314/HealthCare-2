@@ -1,12 +1,13 @@
 import { Doctor } from "@/entity/Doctor";
+import { connect_db } from "@/helper/db";
 import { NextRequest, NextResponse } from "next/server";
-
+connect_db()
 export async function GET({ params }: { params: { docId: string } })
 {
+    const {docId} = params;
     console.log(params);
     try {
         
-        const {docId} = params;
         if(!docId){
             return NextResponse.json({
                 message: `Doctor not found with id: ${docId}`
