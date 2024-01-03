@@ -35,16 +35,12 @@ export default function Home() {
       return;
     }
 
-    try {
-      const result = await Login(loginData);
-      if(!result.status){
-        throw new Error(result.message)
-      }
+    const result = await Login(loginData);
+    if(!result.status)
+    {
+      toast.error(result.message)
+    }else{
       router.push("/profile/user")
-    } catch (error) {
-      toast.info("Invalid Credentials !!", {
-        position: "top-center"
-      })
     }
 
   }

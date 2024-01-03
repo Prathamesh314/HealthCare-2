@@ -22,7 +22,7 @@ export const connect_db = async() => {
         const doctor = new Doctor({
             fname:"doc1",
             lname:"lname",
-            email:"email",
+            email:"email@gmail.com",
             password:"Password!@#123",
             specialization:"Cardiology",
             yearsOfExperience:2,

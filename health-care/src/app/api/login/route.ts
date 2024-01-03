@@ -4,8 +4,15 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Doctor } from "@/entity/Doctor";
 
+
+interface LoginData{
+  email: string,
+  password: string,
+  role: string,
+};
+
 export async function POST(req: NextRequest) {
-  const { email, password, role } = await req.json();
+  const { email, password, role } =  await req.json();
   console.log(req)
   try {
 
@@ -87,7 +94,7 @@ export async function POST(req: NextRequest) {
     console.error(error); // Log the error for debugging purposes
     return NextResponse.json({
       message: "Credentials not matching",
-      status: false
+      status: false,
     })
   }
 }
