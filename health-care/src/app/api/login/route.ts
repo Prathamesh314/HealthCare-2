@@ -6,7 +6,7 @@ import { Doctor } from "@/entity/Doctor";
 
 export async function POST(req: NextRequest) {
   const { email, password, role } = await req.json();
-
+  console.log(req)
   try {
 
     // user login
@@ -83,10 +83,11 @@ export async function POST(req: NextRequest) {
 
       return response;
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error(error); // Log the error for debugging purposes
     return NextResponse.json({
-      message: "Credentials are not matching...",
-    });
+      message: "Credentials not matching",
+      status: false
+    })
   }
 }
