@@ -21,6 +21,10 @@ const postSchema = new Schema({
     },
     likes:{
         type: Number
+    },
+    userId:{
+        type: mongoose.Types.ObjectId,
+        required: true,
     }
 });
 
