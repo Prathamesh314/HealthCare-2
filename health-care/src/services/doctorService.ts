@@ -16,7 +16,7 @@ interface LoginData{
     role: string,
 }
 
-export async function Signup(doctor: DoctorInterface)
+export async function DoctorSignup(doctor: DoctorInterface)
 {
     const result = await axios.post("/api/docs", doctor)
         .then((response)=>response.data);

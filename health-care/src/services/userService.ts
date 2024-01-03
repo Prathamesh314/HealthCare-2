@@ -14,15 +14,9 @@ interface LoginData{
     role: string,
 }
 
-export async function signup(user: UserInterface)
+export async function UserSignup(user: UserInterface)
 {
     const result = (await axios.post("/api/users/", user).then((response)=>response.data));
-    return result;
-}
-
-export async function login(loginData: LoginData)
-{
-    const result = await axios.post("/api/login", loginData).then((response)=>response.data);
     return result;
 }
 
