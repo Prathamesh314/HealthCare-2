@@ -23,6 +23,7 @@ export default function Home() {
 
   return (
     <div className="h-screen mt-20">
+      
       <div className="flex justify-between items-center w-full ">
         <div className="flex flex-col justify-start pl-32 mt-16 gap-y-10">
           <div className="font-mono font-semibold text-xl text-purple-600">
