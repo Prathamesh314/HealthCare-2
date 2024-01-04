@@ -1,9 +1,10 @@
 import React from 'react'
+import UserSignup from './UserSignup'
 
 const SignupPage = () => {
   return (
     <div>
-      Signup
+      <UserSignup/>
     </div>
   )
 }

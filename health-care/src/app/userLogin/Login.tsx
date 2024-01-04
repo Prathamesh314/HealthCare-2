@@ -43,15 +43,9 @@ const LoginComponent
     }
   
     return (
-      <div className="bg-gradient-to-r from-blue-500 via-red-500 to-green-500 flex items-center justify-center h-screen">
+      <div className="bg-gray-300 flex items-center justify-center h-screen">
         <div className="flex justify-center items-center">
-          <div className="h-[500px] w-[600px] border-2 ml-20 mt-20 items-center justify-center rounded-l-lg ">
-            <Image alt="welcome-img" src="/images/welcome-back.jpg" width={800} height={800} style={{
-                width: "100%",
-                height: "100%"
-            }}/>
-          </div>
-          <div className="h-[500px] w-[400px] border-2 mr-20 mt-20 p-4 items-center justify-center bg-white rounded-r-lg">
+          <div className="h-[500px] w-[500px] border-2 rounded-xl mr-20 mt-20 p-4 items-center justify-center bg-white rounded-r-lg">
             <h1 className="text-black text-2xl font-bold items-center justify-center m-auto w-full fonts ">Welcome to Login Page</h1>
             <form action="#!">
               <div className="mt-10 flex justify-between items-center">
