@@ -12,14 +12,14 @@ interface LoginData{
   role: string,
 }
 
-export default function Home() {
+export default function Home(role: string) {
 
   const router = useRouter();
 
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
-    role: "user"
+    role: role
   });
 
 
