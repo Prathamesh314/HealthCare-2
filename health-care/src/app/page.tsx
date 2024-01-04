@@ -22,9 +22,9 @@ export default function Home() {
   }, [message]);
 
   return (
-    <div className="h-screen">
+    <div className="h-screen mt-20">
       <div className="flex justify-between items-center w-full ">
-        <div className="flex flex-col justify-start pl-32 mt-32 gap-y-10">
+        <div className="flex flex-col justify-start pl-32 mt-16 gap-y-10">
           <div className="font-mono font-semibold text-xl text-purple-600">
             <h1>Take care of your body</h1>
             <h1>Its the only place you have to live in.</h1>
@@ -42,6 +42,9 @@ export default function Home() {
               Here are various post related to healthy diet and life,
               you can see exercises of any body part.
             </h1>
+          </div>
+          <div className="flex justify-center items-center">
+            <button className="w-[150px] h-[50px] bg-purple-600 text-gray-100 rounded-3xl">Get in touch</button>
           </div>
         </div>
         <div>

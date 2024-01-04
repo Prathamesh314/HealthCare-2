@@ -6,7 +6,12 @@ const navcomponents = [
   {
     name:"Home",
     link:"/"
-  },{
+  },
+  {
+    name:"Exercises",
+    link: "/exercise"
+  },
+  {
     name: "Appointment",
     link: "#!",
   },
@@ -17,12 +22,13 @@ const navcomponents = [
   {
     name:"Register",
     link: "/register",
-  }
+  },
+  
 ]
 
 const NavBar = () => {
   return (
-    <div className='flex justify-between items-center w-full h-[80px] p-3'>
+    <div className='flex fixed top-0 justify-between items-center w-full h-[80px] p-3'>
       <div className='flex justify-center items-center gap-x-8'>
         <h1 className='font-semibold font-serif text-2xl'>Healthcare</h1>
         <Image alt="logo" src="/images/sitelogo.png" width={50} height={50}/>
