@@ -20,9 +20,9 @@ const RegisterPage = () => {
 
 
     return (
-        <div className='bg-gradient-to-r from-blue-400 via-green-400 to-yellow-300 p-6 mx-auto rounded-xl shadow-md h-screen backdrop-blur-lg'>
+        <div className='bg-gray-200 p-6 mx-auto rounded-xl shadow-md h-screen backdrop-blur-lg'>
             <div className='flex items-center justify-center w-full gap-x-48 p-3'>
-                <div className='gap-y-10 flex flex-col border-4 w-[300px] h-[500px] p-3 items-center justify-center rounded-lg mt-12 bg-cyan-600 hover:border-yellow-400 hover:shadow-2xl'>
+                <div className='gap-y-10 flex flex-col border-4 w-[300px] h-[500px] p-3 items-center justify-center rounded-lg mt-12 bg-cyan-200 border-cyan-700 hover:border-yellow-400 hover:shadow-2xl'>
                     <div>
                         <h1 className='font-mono font-semibold text-xl text-gray-800'>
                             Signup / Login as USER
@@ -39,7 +39,7 @@ const RegisterPage = () => {
                     </div>
                 </div>
 
-                <div className='gap-y-10 flex flex-col border-4 w-[300px] h-[500px] p-3 items-center justify-center rounded-lg mt-12 bg-purple-600 hover:border-yellow-400 hover:shadow-2xl'>
+                <div className='gap-y-10 flex flex-col border-4 w-[300px] h-[500px] p-3 items-center justify-center rounded-lg mt-12 bg-purple-300 border-purple-700 hover:border-yellow-400 hover:shadow-2xl'>
                     <div>
                         <h1 className='font-mono font-semibold text-xl text-gray-800'>
                             Signup / Login as DOCTOR

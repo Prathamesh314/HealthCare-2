@@ -82,3 +82,20 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+.message-container {
+  overflow: hidden;
+  text-align: center;
+}
+
+.message-list {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.message {
+  flex: 0 0 100%; /* Set the width to 100% of the container */
+  box-sizing: border-box;
+  text-align: center;
+}
+
