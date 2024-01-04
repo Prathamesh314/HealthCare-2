@@ -1,6 +1,5 @@
 "use client"
 import { Login } from "@/services/doctorService";
-import Error from "next/error";
 import Image from "next/image"
 import Link from "next/link";
 import { useRouter } from "next/navigation"
@@ -46,7 +45,7 @@ export default function Home() {
   }
 
   return (
-    <div className=" h-screen">
+    <div className="bg-gradient-to-r from-blue-500 via-red-500 to-green-500 flex items-center justify-center h-screen">
       <div className="flex justify-center items-center">
         <div className="h-[500px] w-[600px] border-2 ml-20 mt-20 items-center justify-center rounded-l-lg ">
           <Image alt="welcome-img" src="/images/welcome-back.jpg" width={800} height={800} style={{

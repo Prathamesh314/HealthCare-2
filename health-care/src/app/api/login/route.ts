@@ -5,15 +5,9 @@ import jwt from "jsonwebtoken";
 import { Doctor } from "@/entity/Doctor";
 
 
-interface LoginData{
-  email: string,
-  password: string,
-  role: string,
-};
-
 export async function POST(req: NextRequest) {
   const { email, password, role } =  await req.json();
-  console.log(req)
+
   try {
 
     // user login
@@ -95,6 +89,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       message: "Credentials not matching",
       status: false,
+      email: email,
+      password: password,
+      role: role,
     })
   }
 }
