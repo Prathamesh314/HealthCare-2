@@ -17,7 +17,6 @@ const options = (Type: string, bodyPart: string) =>(
 
 export async function FetchFromApi(Type: string, bodypart: string)
 {
-    console.log(bodypart)
     try {
         const response = await axios.request(options(Type, bodypart));
         return response

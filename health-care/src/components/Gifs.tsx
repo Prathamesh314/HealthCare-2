@@ -11,7 +11,7 @@ interface GifInterface {
     target:string
 }
 
-const Gifs = ({gifs}:{gifs: any}) => {
+const Gifs = ({gifs}:{gifs: GifInterface[] | undefined}) => {
   return (
     <div>
         <GifCards gifs={gifs} />
