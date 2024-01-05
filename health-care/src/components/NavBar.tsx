@@ -17,7 +17,7 @@ const navcomponents = [
   },
   {
     name:"Medicines",
-    link:"#!",
+    link:"/medicines",
   },
   {
     name:"Register",
