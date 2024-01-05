@@ -33,7 +33,7 @@ const MedicinePage = () => {
         <div className='flex justify-center items-center gap-x-32 w-full m-5'>
             <div className=' flex flex-col  gap-y-4 border-2 border-black w-[20%] justify-center items-center p-3 h-50 rounded-tr-3xl rounded-bl-3xl bg-blue-100'>
                 <div>
-                    <h1 className='text-xl font-serif font-semibold underline'>Add Medicines Here...</h1>
+                    <h1 className='text-xl font-serif font-semibold underline italic' style={{color:'#C71585'}}>Add Medicines Here...</h1>
                 </div>
                 <div >
                     <form onSubmit={handleSubmit} className='flex flex-col gap-y-2 justify-center items-center p-3'>
