@@ -13,15 +13,14 @@ interface GifInterface {
 const GifCards = ({gifs}:{gifs: GifInterface[] | undefined}) => {
     gifs = gifs?.data;
     console.log(gifs)
-    const cardsPerPage = 16;
-    const cardsPerRow = 5;
+    const cardsPerPage = 15;;
     const [currentPage, setCurrentPage] = useState<number>(1);
     
     const indexOfLastCard = currentPage*cardsPerPage;
     const indexOfFirstCard = indexOfLastCard - cardsPerPage
     const currentCard = gifs?.slice(indexOfFirstCard, indexOfLastCard);
     
-    const totalPages = Math.ceil(203 / cardsPerPage);
+    const totalPages = Math.ceil(gifs?.length / cardsPerPage);
     
     const handlePageChange = (newPage: number) => {
         setCurrentPage(newPage);
@@ -31,7 +30,7 @@ const GifCards = ({gifs}:{gifs: GifInterface[] | undefined}) => {
     <div>
       {/* Render cards for the current page */}
       <div className="grid grid-cols-5 gap-x-4 w-[1000px] h-[500px]">
-        {gifs?.map((card) => (
+        {currentCard?.map((card) => (
           <div key={card.id} className="card">
             <img src={card.gifUrl} alt={`GIF ${card.id}`} className="w-full h-32" />
           </div>
@@ -39,7 +38,7 @@ const GifCards = ({gifs}:{gifs: GifInterface[] | undefined}) => {
       </div>
 
       {/* Pagination navigation */}
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-10">
         {Array.from({ length: totalPages }).map((_, index) => (
           <button
             key={index + 1}

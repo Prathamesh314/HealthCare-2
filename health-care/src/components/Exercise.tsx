@@ -43,8 +43,9 @@ const Exercise = () => {
           </div>
         ))}
       </div>
-      <div className='border-4'>
-        {gifBody == undefined? <Loader/> :<Gifs gifs={gifBody}/>}
+      <div>
+        {/* {gifBody == undefined? <Loader/> :<Gifs gifs={gifBody}/>} */}
+        <Loader/>
       </div>
     </div>
   )

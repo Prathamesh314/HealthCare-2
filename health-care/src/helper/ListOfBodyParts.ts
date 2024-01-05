@@ -14,7 +14,7 @@
 export const body_parts = [
     {
         name:"Back",
-        icon: "/images/backbody.jpeg",
+        icon: "/images/backbody.png",
     },
     {
         name:"Cardio",
@@ -26,7 +26,7 @@ export const body_parts = [
     },
     {
         name: "Lower Arms",
-        icon:"/images/lowerarms.jpeg",
+        icon:"/images/lowerarm.png",
     },
     {
         name: "Upper Arms",
