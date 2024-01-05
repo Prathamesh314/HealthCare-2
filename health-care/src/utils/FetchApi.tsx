@@ -9,7 +9,7 @@ const options = (Type: string, bodyPart: string) =>(
     method: 'GET',
     url: `https://exercisedb.p.rapidapi.com/exercises/${Type}/${bodyPart}`,
     headers: {
-        'X-RapidAPI-Key': '5e609e788emsh00a312c9b84c741p1bc1edjsn6414bf9a6266',
+        'X-RapidAPI-Key': apikey,
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
  }
