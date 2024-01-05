@@ -2,9 +2,9 @@
 import { body_parts } from '@/helper/ListOfBodyParts'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import Gifs from './Gifs'
 import { FetchFromApi } from '@/utils/FetchApi'
 import Loader from './Loader'
+import Gifs from './Gifs'
 
 interface GifInterface {
   bodyPart:string
@@ -44,8 +44,7 @@ const Exercise = () => {
         ))}
       </div>
       <div>
-        {/* {gifBody == undefined? <Loader/> :<Gifs gifs={gifBody}/>} */}
-        <Loader/>
+        {gifBody == undefined? <Loader/> : <Gifs gifs={gifBody}/>}
       </div>
     </div>
   )
