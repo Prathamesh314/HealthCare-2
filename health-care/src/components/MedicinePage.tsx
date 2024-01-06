@@ -1,5 +1,33 @@
 "use client"
 import React, { useState } from 'react'
+import { getAllMedicines } from '@/services/medicineService';
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+
+interface MedicineInterface{
+    name: string,
+    description: string,
+    image: string,
+    suggested_by: string,
+    userId: string,
+}
 
 const MedicinePage = () => {
     const [formData, setFormData] = useState({
@@ -9,6 +37,8 @@ const MedicinePage = () => {
         suggested_by: '',
     });
 
+    const [medicines, setMedicines] = useState<MedicineInterface[] | undefined >();
+
     const handleChange = (e: any) => {
         const { name, value } = e.target;
         setFormData({
@@ -16,6 +46,13 @@ const MedicinePage = () => {
             [name]: value,
         });
     };
+
+    const getMedicines = async() =>{
+        const medicines = await getAllMedicines();
+        setMedicines(medicines);
+    }
+
+    getMedicines();
 
     const handleImageChange = (e: any) => {
         const file = e.target.files[0];
@@ -92,7 +129,9 @@ const MedicinePage = () => {
                 </div>
             </div>
             <div className='border-2 border-black w-[65%] justify-center items-center p-3 mr-2'>
-                View your medicines...
+                {medicines?.map((item)=>(
+
+                ))}
             </div>
         </div>
     )

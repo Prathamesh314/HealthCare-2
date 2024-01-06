@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import { Doctor } from "@/entity/Doctor";
 
-const URI = process.env.MONGODB_URI;
+const URI = "mongodb+srv://health:health@cluster0.ufc2aiz.mongodb.net/";
 
 export const connect_db = async() => {
     try {
@@ -31,8 +31,8 @@ export const connect_db = async() => {
 
 
 
-        user.password = await bcrypt.hash(user.password, parseInt(process.env.BCRYPT_SALT ?? " "))
-        doctor.password = await bcrypt.hash(user.password, parseInt(process.env.BCRYPT_SALT ?? " "));
+        user.password = await bcrypt.hash(user.password, parseInt("10" ?? " "))
+        doctor.password = await bcrypt.hash(user.password, parseInt("10" ?? " "));
 
 
         user.save();

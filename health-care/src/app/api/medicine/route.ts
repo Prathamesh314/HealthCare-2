@@ -28,9 +28,9 @@ export async function POST(req: NextRequest)
 
 export async function GET() {
     try {
-        const medicines = await Medicine.find();
+        const medicines = await Medicine.find().maxTimeMS(20000);
         return NextResponse.json({
-            medicine: medicines
+            medicines
         });
     } catch (error) {
         console.log("Some error occured...");

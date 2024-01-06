@@ -13,7 +13,13 @@ export async function createMedicine(medicine: MedicineInterface)
 {
     const result = await axios
         .post("/api/medicine", medicine)
-        .then((response)=>response.data);
+    return result;
+}
+
+export async function getAllMedicines()
+{
+    const result = await axios.get("/api/medicine")
+    .then((response)=>response.data);
     return result;
 }
 
