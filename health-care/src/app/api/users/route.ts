@@ -3,8 +3,8 @@ import { connect_db } from "@/helper/db";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs"
 
-connect_db();
 
+connect_db();
 export async function POST(req: NextRequest){
     try {
         const {fname, lname, email, password, profile_photo} = await req.json();

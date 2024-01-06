@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAllMedicines } from '@/services/medicineService';
 import { Button } from "@/components/ui/button"
 import {
@@ -19,6 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import Image from 'next/image';
 
 
 interface MedicineInterface{
@@ -49,10 +50,15 @@ const MedicinePage = () => {
 
     const getMedicines = async() =>{
         const medicines = await getAllMedicines();
-        setMedicines(medicines);
+        setMedicines(medicines?.medicines);
+        console.log(medicines)
     }
 
-    getMedicines();
+    useEffect(()=>{
+        getMedicines();
+    }, []);
+
+    console.log(medicines)
 
     const handleImageChange = (e: any) => {
         const file = e.target.files[0];
@@ -128,9 +134,26 @@ const MedicinePage = () => {
                     </form>
                 </div>
             </div>
-            <div className='border-2 border-black w-[65%] justify-center items-center p-3 mr-2'>
-                {medicines?.map((item)=>(
-
+            <div className=' grid grid-cols-2 gap-y-2 w-[60%] justify-center items-center p-4 mr-2'>
+                { medicines?.map((item, index)=>(
+                    <Card key={index} className="w-[350px] border-2 border-gray-300">
+                    <CardHeader>
+                      <CardTitle>Medicine {index+1}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="grid w-full items-center gap-4">
+                          <div className="flex flex-col space-y-1.5">
+                            <h1 className='font-mono text-xl '>Name: {item.name}</h1>
+                          </div>
+                          <div className="flex flex-col space-y-1.5">
+                            <Image alt={item.name} src={item.image} width={100} height={100}/>
+                          </div>
+                        </div>
+                    </CardContent>
+                    <CardFooter className="flex justify-between">
+                      <h1 className='text-xl font-mono'>Suggested By: {item.suggested_by}</h1>
+                    </CardFooter>
+                  </Card>
                 ))}
             </div>
         </div>
