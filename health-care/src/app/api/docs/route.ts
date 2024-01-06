@@ -1,7 +1,9 @@
 import { Doctor } from "@/entity/Doctor";
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import { connect_db } from "@/helper/db";
 
+connect_db()
 export async function POST(req: NextRequest)
 {
     try {

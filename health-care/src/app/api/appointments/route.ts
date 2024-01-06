@@ -1,7 +1,9 @@
 
 import { Appointment } from "@/entity/Appointment";
 import { NextRequest, NextResponse } from "next/server";
+import { connect_db } from "@/helper/db";
 
+connect_db();
 export async function POST(req: NextRequest)
 {
     try {

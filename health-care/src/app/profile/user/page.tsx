@@ -1,8 +1,11 @@
+import Feed from '@/components/Feed'
 import React from 'react'
 
 const UserPage = () => {
   return (
-    <div>UserPage</div>
+    <div className='mt-28'>
+      <Feed/>
+    </div>
   )
 }
 

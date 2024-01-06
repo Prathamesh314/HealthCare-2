@@ -3,8 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Doctor } from "@/entity/Doctor";
+import { connect_db } from "@/helper/db";
 
-
+connect_db()
 export async function POST(req: NextRequest) {
   const { email, password, role } =  await req.json();
 

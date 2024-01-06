@@ -1,6 +1,8 @@
 import { Medicine } from "@/entity/Medicine";
+import { connect_db } from "@/helper/db";
 import { NextRequest, NextResponse } from "next/server";
 
+connect_db()
 export async function POST(req: NextRequest)
 {
     try {

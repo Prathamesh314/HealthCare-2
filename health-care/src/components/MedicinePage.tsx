@@ -1,9 +1,10 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { getAllMedicines } from '@/services/medicineService';
+import { createMedicine, getAllMedicines } from '@/services/medicineService';
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -24,19 +25,12 @@ const MedicinePage = () => {
     const [formData, setFormData] = useState({
         name: '',
         description: '',
-        image: null,
+        image: '',
         suggested_by: '',
+        userId: '6593d49110889af311a63f60'
     });
 
     const [medicines, setMedicines] = useState<MedicineInterface[] | undefined >();
-
-    const handleChange = (e: any) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
 
     const getMedicines = async() =>{
         const medicines = await getAllMedicines();
@@ -48,7 +42,7 @@ const MedicinePage = () => {
         getMedicines();
     }, []);
 
-    console.log(medicines)
+    // console.log(medicines)
 
     const handleImageChange = (e: any) => {
         const file = e.target.files[0];
@@ -60,7 +54,8 @@ const MedicinePage = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log(formData);
+        console.log(formData)
+        createMedicine(formData)
     };
     return (
         <div className='flex justify-center items-center gap-x-32 w-full m-5'>
@@ -78,7 +73,12 @@ const MedicinePage = () => {
                             name="name"
                             placeholder='Eg. Paracetamol'
                             value={formData.name}
-                            onChange={handleChange}
+                            onChange={(e) => {
+                                setFormData({
+                                  ...formData,
+                                  name: e.target.value
+                                });
+                              }}
                             required
                             className='border-2 border-black p-1 rounded-md'
                         />
@@ -90,7 +90,12 @@ const MedicinePage = () => {
                             name="description"
                             placeholder='Eg. 1 pill/day'
                             value={formData.description}
-                            onChange={handleChange}
+                            onChange={(e) => {
+                                setFormData({
+                                  ...formData,
+                                  description: e.target.value
+                                });
+                              }}
                             rows="4"
                             required
                             className='border-2 border-black p-1 rounded-md'
@@ -102,7 +107,12 @@ const MedicinePage = () => {
                             type="file"
                             id="image"
                             name="image"
-                            onChange={handleImageChange}
+                            onChange={(e) => {
+                                setFormData({
+                                  ...formData,
+                                  image: e.target.value
+                                });
+                              }}
                             className='pl-20'
                         />
 
@@ -114,7 +124,12 @@ const MedicinePage = () => {
                             name="suggested_by"
                             placeholder='Doctor Name'
                             value={formData.suggested_by}
-                            onChange={handleChange}
+                            onChange={(e) => {
+                                setFormData({
+                                  ...formData,
+                                  suggested_by: e.target.value
+                                });
+                              }}
                             required
                             className='border-2 border-black p-1 rounded-md'
                         />
@@ -124,9 +139,9 @@ const MedicinePage = () => {
                     </form>
                 </div>
             </div>
-            <div className=' grid grid-cols-2 gap-y-2 w-[60%] justify-center items-center p-4 mr-2'>
+            <div className=' grid grid-cols-4 gap-y-2 w-[60%] justify-center items-center p-4 mr-2'>
                 { medicines?.map((item, index)=>(
-                    <Card key={index} className="w-[350px] border-2 border-gray-300">
+                    <Card key={index} className="w-[200px] h-[400px] bg-black text-white border-2 border-gray-300 justify-center items-center overflow-scroll scrollbar-hide">
                     <CardHeader>
                       <CardTitle>Medicine {index+1}</CardTitle>
                     </CardHeader>
@@ -134,9 +149,10 @@ const MedicinePage = () => {
                         <div className="grid w-full items-center gap-4">
                           <div className="flex flex-col space-y-1.5">
                             <h1 className='font-mono text-xl '>Name: {item.name}</h1>
+                            <CardDescription className='font-mono text-xl font-semibold'>{item.description}</CardDescription>
                           </div>
                           <div className="flex flex-col space-y-1.5">
-                            <Image alt={item.name} src={item.image} width={100} height={100}/>
+                            <Image alt={item.name} src={item.image} width={80} height={80}/>
                           </div>
                         </div>
                     </CardContent>

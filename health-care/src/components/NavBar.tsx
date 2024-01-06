@@ -8,6 +8,10 @@ const navcomponents = [
     link:"/"
   },
   {
+    name: "Feed",
+    link: "/profile/user"
+  },
+  {
     name:"Exercises",
     link: "/exercise"
   },
