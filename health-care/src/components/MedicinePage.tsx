@@ -57,6 +57,19 @@ const MedicinePage = () => {
 
   // console.log(medicines)
 
+  const itemsPerPage = 4;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentMedicines = medicines?.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(medicines?.length / itemsPerPage);
+
+  const handlePageChange = (page: any) => {
+    setCurrentPage(page);
+  };
+
   const handleImageChange = (e: any) => {
     const file = e.target.files[0];
     setFormData({
@@ -75,11 +88,11 @@ const MedicinePage = () => {
       
       <div className='flex flex-col justify-center items-center gap-y-10 w-full'>
         <div>
-          <h1 className='font-serif font-bold text-3xl'>Your Medicines</h1>
+          <h1 className='font-serif font-bold text-3xl text-purple-950'>Your Medicines</h1>
         </div>
         <div className=' grid grid-cols-4 gap-y-2 gap-x-5 p-4'>
           {medicines?.map((item, index) => (
-            <Card key={index} className="w-[300px] h-[350px]  border-2  justify-center items-center overflow-scroll scrollbar-hide">
+            <Card key={index} className="w-[300px] h-[350px]  border-2 border-black  justify-center items-center overflow-scroll scrollbar-hide">
               <CardHeader>
                 <CardTitle>Medicine {index + 1}</CardTitle>
               </CardHeader>
@@ -99,6 +112,18 @@ const MedicinePage = () => {
               </CardFooter>
             </Card>
           ))}
+          {/* Pagination Controls */}
+          <div className="col-span-4 flex justify-center mt-4 ">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => handlePageChange(index + 1)}
+                className={`mx-2 px-4 py-2 border ${currentPage === index + 1 ? 'bg-gray-900 text-white' : 'bg-black text-white'}`}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
         </div>
         <div>
           <Drawer>
@@ -106,7 +131,7 @@ const MedicinePage = () => {
               <Button className='w-[200px] h-[50px] font-mono text-xl bg-white text-black hover:bg-white
               '>Add Medicines</Button>
             </DrawerTrigger>
-            <DrawerContent className='bg-gray-300 h-[650px]'>
+            <DrawerContent className='bg-white h-[650px]'>
               <div className='mx-auto w-full max-w-sm'>
                 <div className=' flex flex-col  gap-y-4 border-2 border-black w-full justify-center items-center p-3 h-50  rounded-3xl bg-blue-400 text-black mt-5'>
                   <div>
