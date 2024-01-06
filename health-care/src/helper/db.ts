@@ -63,10 +63,10 @@ export const connect_db = async() => {
             userId: "6593d49110889af311a63f60"
         });
 
-        medicine1.save()
-        medicine2.save()
-        medicine3.save()
-        medicine4.save()
+        // medicine1.save()
+        // medicine2.save()
+        // medicine3.save()
+        // medicine4.save()
 
 
         user.password = await bcrypt.hash(user.password, parseInt(process.env.BCRYPT_SALT ?? " "))
