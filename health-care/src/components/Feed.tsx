@@ -1,14 +1,19 @@
 import React from 'react'
 import { Button } from './ui/button'
 
+
+
 const Feed = () => {
+
+  
+
   return (
-    <div className='flex w-full justify-center items-center gap-x-4'>
-      <div className='border-4 w-[85%] p-2'>
+    <div className='flex w-full justify-betweem items-center gap-x-4'>
+      <div className='border-2 w-full ml-2'>
         Feed
       </div>
-      <div className='border-4'>
-        <Button className='rounded-[50%] w-[90px] h-[80px]'>ChatBot</Button>
+      <div>
+        <Button className='w-32 h-10 bg-purple-500 border-2 border-purple-900 mr-3'>Chatbot</Button>
       </div>
     </div>
   )
