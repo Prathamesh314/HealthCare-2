@@ -13,7 +13,8 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
-import Image from 'next/image'
+
+import Feedpage from './Feedpage'
 
 type Promptoutput = {
   name: string,
@@ -58,13 +59,13 @@ const Feed = () => {
   
   return (
     <div className='flex w-full justify-betweem items-center gap-x-4'>
-      <div className='border-2 w-full ml-2'>
-        Feed
+      <div className='w-[80%] ml-2'>
+        <Feedpage/>
       </div>
-      <div>
+      <div className='absolute bottom-16 right-10'>
         <Sheet>
           <SheetTrigger asChild>
-            <Button className='bg-purple-500 w-32 h-10 border-3 border-black mr-3'>Chatbot</Button>
+            <Button className='bg-purple-500 border-8 border-purple-800 w-24 h-24 rounded-full border-3 mr-3 text-xl font-mono font-medium'>Chatbot</Button>
           </SheetTrigger>
           <SheetContent>
             <SheetTitle className='flex justify-center items-center w-full gap-x-5'>

@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import { Doctor } from "@/entity/Doctor";
 import { Medicine } from "@/entity/Medicine";
+import { Post } from "@/entity/Post";
 
 const URI = process.env.MONGODB_URI;
 
@@ -63,10 +64,43 @@ export const connect_db = async() => {
             userId: "6593d49110889af311a63f60"
         });
 
+        const post1 = new Post({
+            title: "Post1",
+            content: "Content1",
+            images: "/POSTS/post1.jpg",
+            likes: 20,
+            userId: "6593d49110889af311a63f60",
+        })
+        const post2 = new Post({
+            title: "Post2",
+            content: "Content2",
+            images: "/POSTS/post2.jpeg",
+            likes: 10,
+            userId: "6593d49110889af311a63f60",
+        })
+        const post3 = new Post({
+            title: "Post3",
+            content: "Content3",
+            images: "/POSTS/post3.jpeg",
+            likes: 30,
+            userId: "6593d49110889af311a63f60",
+        })
+        const post4 = new Post({
+            title: "Post4",
+            content: "Content4",
+            images: "/POSTS/post4.jpg",
+            likes: 40,
+            userId: "6593d49110889af311a63f60",
+        })
+
         // medicine1.save()
         // medicine2.save()
         // medicine3.save()
         // medicine4.save()
+        // post1.save()
+        // post2.save()
+        // post3.save()
+        // post4.save()
 
 
         user.password = await bcrypt.hash(user.password, parseInt(process.env.BCRYPT_SALT ?? " "))

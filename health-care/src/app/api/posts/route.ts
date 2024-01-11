@@ -4,13 +4,14 @@ import { NextRequest, NextResponse } from "next/server";
 connect_db();
 export async function POST(req: NextRequest) {
     try {
-        const {title, content, images} = await req.json();
+        const {title, content, images, userId} = await req.json();
         const likes = 0;
         const post = new Post({
             title,
             content,
             images,
-            likes
+            likes,
+            userId
         });
 
         const savedPost = await post.save();
