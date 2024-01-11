@@ -2,83 +2,38 @@
   "intents": [
     {
       "tag": "greeting",
-      "patterns": [
-        "Hi",
-        "Hey",
-        "How are you",
-        "Is anyone there?",
-        "Hello",
-        "Good day"
-      ],
-      "responses": [
-        "Hey :-)",
-        "Hello, thanks for visiting",
-        "Hi there, what can I do for you?",
-        "Hi there, how can I help?"
-      ]
+      "patterns": ["Hi", "Hello", "Hey"],
+      "responses": ["Hello, how can I help you today?"]
     },
     {
-      "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye"],
-      "responses": [
-        "See you later, thanks for visiting",
-        "Have a nice day",
-        "Bye! Come back again soon."
-      ]
+      "tag": "symptoms",
+      "patterns": ["I have a headache", "My stomach hurts", "I feel dizzy"],
+      "responses": ["I'm sorry to hear that. Can you provide more details about your symptoms?"]
     },
     {
-      "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
-      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+      "tag": "diagnosis",
+      "patterns": ["What could be wrong with me?", "Do I have a fever?"],
+      "responses": ["Based on your symptoms, it could be X. I recommend consulting a healthcare professional for a proper diagnosis."]
     },
     {
-      "tag": "items",
-      "patterns": [
-        "Which items do you have?",
-        "What kinds of items are there?",
-        "What do you sell?"
-      ],
-      "responses": [
-        "We sell coffee and tea",
-        "We have coffee and tea"
-      ]
+      "tag": "gratitude",
+      "patterns": ["Thank you", "Thanks", "Appreciate it"],
+      "responses": ["You're welcome. Take care."]
     },
     {
-      "tag": "payments",
-      "patterns": [
-        "Do you take credit cards?",
-        "Do you accept Mastercard?",
-        "Can I pay with Paypal?",
-        "Are you cash only?"
-      ],
-      "responses": [
-        "We accept VISA, Mastercard and Paypal",
-        "We accept most major credit cards, and Paypal"
-      ]
+      "tag": "diet",
+      "patterns": ["What should I eat to lose weight?", "How many calories should I consume daily?"],
+      "responses": ["A balanced diet is essential for weight management. It's recommended to consult a nutritionist for personalized advice."]
     },
     {
-      "tag": "delivery",
-      "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?"
-      ],
-      "responses": [
-        "Delivery takes 2-4 days",
-        "Shipping takes 2-4 days"
-      ]
+      "tag": "food",
+      "patterns": ["What are some healthy meal options?", "How can I improve my eating habits?"],
+      "responses": ["Incorporating fruits, vegetables, and lean proteins into your meals can contribute to a healthy diet. For personalized guidance, consider consulting a dietitian."]
     },
     {
-      "tag": "funny",
-      "patterns": [
-        "Tell me a joke!",
-        "Tell me something funny!",
-        "Do you know a joke?"
-      ],
-      "responses": [
-        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-        "What did the buffalo say when his son left for college? Bison."
-      ]
+      "tag": "fitness",
+      "patterns": ["What are the best exercises for strength training?", "How often should I work out?"],
+      "responses": ["Strength training and cardiovascular exercises are beneficial for overall fitness. It's advisable to seek guidance from a fitness trainer to create a tailored workout plan."]
     }
   ]
 }
