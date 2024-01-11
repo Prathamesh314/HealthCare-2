@@ -17,7 +17,7 @@ const navcomponents = [
   },
   {
     name: "Appointment",
-    link: "#!",
+    link: "/appointment",
   },
   {
     name:"Medicines",
