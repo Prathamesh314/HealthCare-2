@@ -3,7 +3,7 @@ import React from 'react'
 
 const UserPage = () => {
   return (
-    <div className='mt-28'>
+    <div className='mt-24'>
       <Feed/>
     </div>
   )

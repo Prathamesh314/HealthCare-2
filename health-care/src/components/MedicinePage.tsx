@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/drawer"
 
 import Image from 'next/image';
+import Loader from './Loader';
 
 
 interface MedicineInterface {
@@ -91,7 +92,7 @@ const MedicinePage = () => {
           <h1 className='font-serif font-bold text-3xl text-purple-950'>Your Medicines</h1>
         </div>
         <div className=' grid grid-cols-4 gap-y-2 gap-x-5 p-4'>
-          {medicines?.map((item, index) => (
+          {medicines==undefined? <Loader/>: medicines.map((item, index) => (
             <Card key={index} className="w-[300px] h-[350px]  border-2 border-black  justify-center items-center overflow-scroll scrollbar-hide">
               <CardHeader>
                 <CardTitle>Medicine {index + 1}</CardTitle>

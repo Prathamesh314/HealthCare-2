@@ -14,12 +14,15 @@ import {
 } from "@/components/ui/card"
 
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel"
+
+
+import Loader from './Loader';
 
 interface UserInterface {
     fname: string,
@@ -75,18 +78,38 @@ const Feedpage = () => {
                     <h1 className='font-mono font-bold text-xl text-white'>Appointments: {userDetails.appointments}</h1>
                 </div>
             </div>
-            <div className='flex flex-col items-center gap-y-6 overflow-y-auto w-[60%] h-[500px] p-4 scrollbar-hide mr-10'>
-                {postData.map((posts, idx) => (
-                    <Card key={idx} className='w-[300px] border-1 border-black'>
-                        <CardHeader>
-                            <CardTitle>{posts.title}</CardTitle>
-                            <CardDescription>{posts.content}</CardDescription>
-                        </CardHeader>
-                        <div className="flex justify-center">
-                            <Image src={posts.images} alt="posts" width={500} height={500} />
-                        </div>
-                    </Card>
-                ))}
+            <div className='flex flex-col items-center w-[60%] h-[500px] p-4 scrollbar-hide mr-10'>
+                <Carousel className="w-[600px] h-[500px]">
+                    <CarouselContent>
+                        {postData.map((post, index) => (
+                            <CarouselItem key={index}>
+                                <div className="p-1">
+                                    <Card>
+                                        {/* Assuming you have a CardContent component */}
+                                        <CardContent className="flex h-[500px] w-[600px] rounded-md bg-gray-100 aspect-square items-center justify-center p-6">
+                                            {/* Render the content from your postData */}
+                                            <div>
+                                                <h2 className="text-xl font-semibold font-mono">{post.title}</h2>
+                                                <p className='text-lg font-mono text-gray-600'>{post.content}</p>
+                                                <Image src={post.images} alt="Post" className="max-w-full rounded-3xl" width={400} height={250} />
+                                                <p className=' mt-2 flex justify-start items-center gap-x-1'>
+                                                    <div>
+                                                        <Image src="/POSTS/like.png" alt="like" width={40} height={40} /> 
+                                                    </div>
+                                                    <div>
+                                                        <h1 className='text-xl'>{post.likes}</h1>
+                                                    </div>
+                                                </p>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </Carousel>
             </div>
 
         </div>

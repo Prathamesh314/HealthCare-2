@@ -82,7 +82,7 @@ const Feed = () => {
             <div className='flex flex-col gap-y-4 mt-1'>
               <div className='h-[530px] gap-y-4 overflow-y-auto' >
                 {results?.map((result, index)=>(
-                  <div key={index} className='font-md text-black gapy-3 mb-2'>
+                  <div key={index} className={`font-md font-mono text-white gapy-3 mb-2 ${result.name === 'User' ? 'bg-purple-500 rounded-r-2xl rounded-bl-xl' : 'bg-black rounded-l-2xl rounded-br-2xl'} p-2`}>
                     {result.name} : {result.message}
                   </div>
                 ))}
