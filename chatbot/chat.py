@@ -1,6 +1,5 @@
 import random
 import json
-
 import torch
 
 from model import NeuralNet
@@ -27,7 +26,7 @@ model.eval()
 
 bot_name = "Prathamesh"
 
-API_KEY = "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"
+API_KEY = "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"
 
 def get_response(msg):
     sentence = tokenize(msg)
@@ -50,22 +49,3 @@ def get_response(msg):
     return "I do not understand..."
 
 
-from openai import OpenAI
-client = OpenAI()
-
-response = client.completions.create(
-  model="gpt-3.5-turbo-instruct",
-  prompt="Write a tagline for an ice cream shop."
-)
-print(response)
-
-
-# if __name__ == "__main__":
-#     print("Let's chat! (type 'quit' to exit)")
-#     while True:
-#         sentence = input("You: ")
-#         if sentence == "quit":
-#             break
-#
-#         resp = generate_chatgpt_response(sentence)
-#         print(resp)

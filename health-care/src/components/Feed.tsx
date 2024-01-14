@@ -14,12 +14,15 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar"
 
+
 import Feedpage from './Feedpage'
+import Chatbot from './Chatbot'
 
 type Promptoutput = {
   name: string,
   message: string,
 }
+
 
 const Feed = () => {
   const [userInput, setUserInput] = useState('');
@@ -33,6 +36,8 @@ const Feed = () => {
   const handleClear = ()=>{
     setresults([])
   }
+
+  
 
   const handleSubmit = async(e: any) => {
     e.preventDefault();
@@ -63,9 +68,11 @@ const Feed = () => {
         <Feedpage/>
       </div>
       <div className='absolute bottom-16 right-10'>
-        <Sheet>
+      <Chatbot/>
+        {/* <Sheet>
           <SheetTrigger asChild>
-            <Button className='bg-purple-500 border-8 border-purple-800 w-24 h-24 rounded-full border-3 mr-3 text-xl font-mono font-medium'>Chatbot</Button>
+            {/* <Button className='bg-purple-500 border-8 border-purple-800 w-24 h-24 rounded-full border-3 mr-3 text-xl font-mono font-medium'>Chatbot</Button> */}
+            {/* <Chatbot/>
           </SheetTrigger>
           <SheetContent>
             <SheetTitle className='flex justify-center items-center w-full gap-x-5'>
@@ -118,7 +125,7 @@ const Feed = () => {
               </div>
             </div>
           </SheetContent>
-        </Sheet>
+        // </Sheet> */}
       </div>
     </div>
   )

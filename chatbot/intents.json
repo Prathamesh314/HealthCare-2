@@ -7,7 +7,19 @@
     },
     {
       "tag": "symptoms",
-      "patterns": ["I have a headache", "My stomach hurts", "I feel dizzy"],
+      "patterns": ["I have a headache",
+        "My stomach hurts",
+        "I feel dizzy",
+        "I'm experiencing a throbbing pain in my head. What could it be?",
+        "Can you help me understand the symptoms of the flu?",
+        "My stomach has been hurting lately. What are the possible causes?",
+        "What are the signs of a heart attack?",
+        "I have a persistent cough. Is that a symptom of something serious?",
+        "What are the early symptoms of diabetes?",
+        "Describe the symptoms of seasonal allergies.",
+        "I'm feeling fatigued and dizzy. Any idea what might be causing it?",
+        "What are the symptoms of a urinary tract infection?",
+        "My joints have been aching. Could it be a symptom of arthritis?"],
       "responses": ["I'm sorry to hear that. Can you provide more details about your symptoms?"]
     },
     {
