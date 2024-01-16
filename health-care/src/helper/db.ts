@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { Doctor } from "@/entity/Doctor";
 import { Medicine } from "@/entity/Medicine";
 import { Post } from "@/entity/Post";
+import { Appointment } from "@/entity/Appointment";
 
 const URI = process.env.MONGODB_URI;
 
@@ -93,6 +94,22 @@ export const connect_db = async() => {
             userId: "6593d49110889af311a63f60",
         })
 
+        const app1 = new Appointment({
+            topic:"Headache",
+            userId:"6593d49110889af311a63f60",
+            docName:"Doctor"
+        })
+        const app2 = new Appointment({
+            topic:"Fever",
+            userId:"6593d49110889af311a63f60",
+            docName:"Doctor"
+        })
+        const app3 = new Appointment({
+            topic:"Cough",
+            userId:"6593d49110889af311a63f60",
+            docName:"Doctor"
+        })
+
         // medicine1.save()
         // medicine2.save()
         // medicine3.save()
@@ -107,8 +124,8 @@ export const connect_db = async() => {
         doctor.password = await bcrypt.hash(user.password, parseInt(process.env.BCRYPT_SALT ?? " "));
 
 
-        user.save();
-        doctor.save();
+        // user.save();
+        // doctor.save();
     
         console.log(connection);
         console.log("Connection established...");

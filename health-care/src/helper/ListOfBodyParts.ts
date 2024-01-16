@@ -1,16 +1,3 @@
-// const boady_parts = [
-//     "back",
-//     "cardio",
-//     "chest",
-//     "lower arms",
-//     "lower legs",
-//     "neck",
-//     "shoulders",
-//     "upper arms",
-//     "upper legs",
-//     "waist"
-// ]
-
 export const body_parts = [
     {
         name:"Back",

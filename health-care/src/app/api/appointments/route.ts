@@ -14,7 +14,12 @@ export async function POST(req: NextRequest)
             docName
         });
 
-        return NextResponse.json(appointment);
+        const saved_appointment = await appointment.save()
+
+        return NextResponse.json({
+            message: "Appointment added successfully",
+            appointment: saved_appointment
+        });
     } catch (error) {
         console.log("Some error occurred..");
         console.log(error);

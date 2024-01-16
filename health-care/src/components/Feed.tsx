@@ -17,6 +17,7 @@ import {
 
 import Feedpage from './Feedpage'
 import Chatbot from './Chatbot'
+import { useRouter } from 'next/navigation'
 
 type Promptoutput = {
   name: string,
@@ -27,7 +28,7 @@ type Promptoutput = {
 const Feed = () => {
   const [userInput, setUserInput] = useState('');
   let [results, setresults] = useState<Promptoutput[]>([])
-
+  const router = useRouter()
 
   const handleInputChange = (e: any) => {
     setUserInput(e.target.value);
@@ -60,6 +61,10 @@ const Feed = () => {
         setUserInput('')
   };
 
+  const redirectToVideos = () => {
+    router.push("/videos")
+  }
+
   console.log(results)
   
   return (
@@ -68,11 +73,10 @@ const Feed = () => {
         <Feedpage/>
       </div>
       <div className='absolute bottom-16 right-10'>
-      <Chatbot/>
-        {/* <Sheet>
+      {/* <Chatbot/> */}
+          <Sheet>
           <SheetTrigger asChild>
-            {/* <Button className='bg-purple-500 border-8 border-purple-800 w-24 h-24 rounded-full border-3 mr-3 text-xl font-mono font-medium'>Chatbot</Button> */}
-            {/* <Chatbot/>
+             <Button className='bg-purple-500 border-8 border-purple-800 w-24 h-24 rounded-full border-3 mr-3 text-xl font-mono font-medium'>Chatbot</Button>
           </SheetTrigger>
           <SheetContent>
             <SheetTitle className='flex justify-center items-center w-full gap-x-5'>
@@ -125,7 +129,10 @@ const Feed = () => {
               </div>
             </div>
           </SheetContent>
-        // </Sheet> */}
+        </Sheet> 
+      </div>
+      <div className='absolute right-12 bottom-56'>
+        <Button className='rounded-full w-24 h-24 bg-red-700 text-white text-xl font-mono' onClick={redirectToVideos}>Videos</Button>
       </div>
     </div>
   )
