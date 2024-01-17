@@ -65,12 +65,12 @@ const Videos = () => {
 
   return (
     <div className='flex w-full justify-center items-center gap-x-4'>
-      <div className='w-[18%] border bg-gray-100 rounded-3xl'>
+      <div className='w-[15%] border bg-gray-100 rounded-3xl'>
         <div className='flex flex-col gap-y-4 p-2'>
           {ListOfCategories.map((cats, index) => (
             <div key={index} className='flex flex-col'>
               <div className='flex flex-col gap-y-4'>
-                <Button className={`flex gap-x-10 p-2 w-[250px] hover:bg-purple-600 hover:text-white border-2 border-black rounded-3xl ${selectedCategory == cats.name ? 'bg-purple-500 text-white' : 'bg-white text-black'}`} onClick={() => { handleChange(cats.name) }}>
+                <Button className={`flex gap-x-4 p-2 w-[200px] hover:bg-purple-600 hover:text-white border-2 border-black rounded-3xl ${selectedCategory == cats.name ? 'bg-purple-500 text-white' : 'bg-white text-black'}`} onClick={() => { handleChange(cats.name) }}>
                   <div>
                     <Image src={cats.icon} alt={cats.icon} width={30} height={30} />
                   </div>
@@ -88,14 +88,14 @@ const Videos = () => {
           <input
             type='text'
             placeholder='Search here...'
-            className='p-2 w-72 rounded-xl text-md font-serif border-2'
+            className='p-2 w-72 rounded-xl text-md font-serif border-2 border-gray-700'
             onChange={(e)=>setSearchTerm(e.target.value)}
           />
           <Button className='bg-white hover:bg-white' onClick={() => handleChange(searchTerm)}>
             <Image src="/images/search.png" alt="search" width={20} height={20} className='hover:w-3 hover:h-3' />
           </Button>
         </div>
-        <div className=' gap-x-2 gap-y-2 overflow-y-auto'>
+        <div className=' gap-y-2 overflow-y-auto'>
           {videosData == undefined ? <Loader /> : <VideoCard videos={videosData} />}
         </div>
       </div>
