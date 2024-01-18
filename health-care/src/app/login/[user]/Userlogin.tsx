@@ -7,14 +7,14 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 
-const LoginComponent
- = () => {
+const UserLogin = ({params}: {params: any}) => {
     const router = useRouter();
+    const role = params.user
 
     const [loginData, setLoginData] = useState({
       email: "",
       password: "",
-      role: "user",
+      role: role,
     });
   
   
@@ -98,5 +98,5 @@ const LoginComponent
     )
 }
 
-export default LoginComponent
+export default UserLogin
 

@@ -47,7 +47,7 @@ const VideoCard = ({ videos }: { videos: Videos[] }) => {
   return (
     <div className='flex justify-center items-center grid grid-cols-4'>
       {videos.map((vids, index) => (
-        <div key={index} className='flex flex-col  gap-2 cursor-pointer w-64 h-72 gap-y-4 border-2 rounded-3xl p-2 m-2' onClick={()=>handleClick(vids.videoId)}>
+        <div key={index} className='flex flex-col  gap-2 cursor-pointer w-64 h-72 gap-y-4 border-2 border-gray-600 rounded-3xl p-2 m-2' onClick={()=>handleClick(vids.videoId)}>
           <div className="video-card">
             <div className="thumbnail-container">
               <img src={vids.thumbnail[0].url} alt={vids.title} className='rounded-3xl' />

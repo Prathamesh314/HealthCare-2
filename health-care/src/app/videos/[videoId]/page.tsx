@@ -3,7 +3,7 @@ import VideoNew from './NewVideo'
 
 const page = ({params}: {params: any}) => {
   return (
-    <div className='mt-28 p-2'>
+    <div className='w-full h-screen backdrop-blur-md bg-cover' style={{ backgroundImage: 'url("/images/backgroundvideos.jpg")' }}>
         <VideoNew params={params}/>
     </div>
   )
