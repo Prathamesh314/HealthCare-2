@@ -7,14 +7,12 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 
 
-const UserLogin = ({params}: {params: any}) => {
+const UserLogin = () => {
     const router = useRouter();
-    const role = params.user
 
     const [loginData, setLoginData] = useState({
       email: "",
       password: "",
-      role: role,
     });
   
   

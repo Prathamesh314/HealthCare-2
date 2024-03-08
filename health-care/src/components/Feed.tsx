@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -16,8 +16,9 @@ import {
 
 
 import Feedpage from './Feedpage'
-import Chatbot from './Chatbot'
 import { useRouter } from 'next/navigation'
+
+import { getCookie } from "cookies-next";
 
 type Promptoutput = {
   name: string,
@@ -27,6 +28,7 @@ type Promptoutput = {
 
 const Feed = () => {
   const [userInput, setUserInput] = useState('');
+  const [user, setUser] = useState(null);
   let [results, setresults] = useState<Promptoutput[]>([])
   const router = useRouter()
 
@@ -34,49 +36,54 @@ const Feed = () => {
     setUserInput(e.target.value);
   };
 
-  const handleClear = ()=>{
+  const handleClear = () => {
     setresults([])
   }
 
-  
+  const token = getCookie("login")
+  console.log(token)
 
-  const handleSubmit = async(e: any) => {
+  console.log(user)
+
+
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    let msg1 = {name: "User", message: userInput}
+    let msg1 = { name: "User", message: userInput }
     results = [...results, msg1]
-    await fetch('http://127.0.0.1:5000/predict', {
-            method: 'POST',
-            body: JSON.stringify({ message: userInput }),
-            mode: 'cors',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-          }).then(r => r.json())
-          .then(r => {
-            let msg2 = { name: "Prathamesh", message: r.message };
-            console.log(msg2)
-            setresults([...results, msg2])
-        })
-      
-        setUserInput('')
+    fetch('http://127.0.0.1:5000/predict', {
+      method: 'POST',
+      body: JSON.stringify({ message: userInput }),
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }).then(r => r.json())
+      .then(r => {
+        let msg2 = { name: "Prathamesh", message: r.message };
+        console.log(msg2)
+        setresults([...results, msg2])
+      })
+
+    setUserInput('')
   };
 
   const redirectToVideos = () => {
     router.push("/videos")
   }
 
-  console.log(results)
-  
+  //console.log(results)
+
   return (
     <div className='flex w-full justify-betweem items-center gap-x-4'>
       <div className='w-[80%] ml-2'>
-        <Feedpage/>
+        <Feedpage />
       </div>
       <div className='absolute bottom-16 right-10'>
-      {/* <Chatbot/> */}
-          <Sheet>
+        {/* <Chatbot/> */}
+        <Sheet>
           <SheetTrigger asChild>
-             <Button className='bg-purple-500 border-8 border-purple-800 w-24 h-24 rounded-full border-3 mr-3 text-xl font-mono font-medium'>Chatbot</Button>
+            <Button className='bg-purple-500 border-8 border-purple-800 w-24 h-24 rounded-full border-3 mr-3 text-xl font-mono font-medium'>Chatbot</Button>
           </SheetTrigger>
           <SheetContent>
             <SheetTitle className='flex justify-center items-center w-full gap-x-5'>
@@ -92,7 +99,7 @@ const Feed = () => {
             <hr className='mt-3 border-t-10 border-black' />
             <div className='flex flex-col gap-y-4 mt-1'>
               <div className='h-[530px] gap-y-4 overflow-y-auto' >
-                {results?.map((result, index)=>(
+                {results?.map((result, index) => (
                   <div key={index} className={`font-md font-mono text-white gapy-3 mb-2 ${result.name === 'User' ? 'bg-purple-500 rounded-r-2xl rounded-bl-xl' : 'bg-black rounded-l-2xl rounded-br-2xl'} p-2`}>
                     {result.name} : {result.message}
                   </div>
@@ -129,7 +136,7 @@ const Feed = () => {
               </div>
             </div>
           </SheetContent>
-        </Sheet> 
+        </Sheet>
       </div>
       <div className='absolute right-12 bottom-56'>
         <Button className='rounded-full w-24 h-24 bg-red-700 text-white text-xl font-mono' onClick={redirectToVideos}>Videos</Button>

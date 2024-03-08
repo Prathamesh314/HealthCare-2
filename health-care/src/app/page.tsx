@@ -22,7 +22,7 @@ export default function Home() {
   }, [message]);
 
   return (
-    <div className="h-screen mt-20">
+    <div className="h-screen mt-20 ">
       
       <div className="flex justify-between items-center w-full ">
         <div className="flex flex-col justify-start pl-32 mt-16 gap-y-10">

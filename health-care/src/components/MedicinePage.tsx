@@ -71,12 +71,9 @@ const MedicinePage = () => {
     setCurrentPage(page);
   };
 
-  const handleImageChange = (e: any) => {
-    const file = e.target.files[0];
-    setFormData({
-      ...formData,
-      image: file,
-    });
+  const handleFileChange = (e: any) => {
+    const selectedFile = e.target.files[0];
+    setFormData({ ...formData, image: selectedFile });
   };
 
   const handleSubmit = (e: any) => {
@@ -93,15 +90,15 @@ const MedicinePage = () => {
         </div>
         <div className=' grid grid-cols-4 gap-y-2 gap-x-5 p-4'>
           {medicines==undefined? <Loader/>: medicines.map((item, index) => (
-            <Card key={index} className="w-[300px] h-[350px]  border-2 border-black  justify-center items-center overflow-scroll scrollbar-hide">
+            <Card key={index} className="w-[300px] h-[350px] border-2 justify-center items-center overflow-scroll scrollbar-hide">
               <CardHeader>
                 <CardTitle>Medicine {index + 1}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid w-full items-center gap-4">
                   <div className="flex flex-col space-y-6">
-                    <h1 className='font-mono text-xl '>Name: {item.name}</h1>
-                    <CardDescription className='font-mono text-xl font-semibold'>{item.description}</CardDescription>
+                    <h1 className='font-serif text-xl '>Name: {item.name}</h1>
+                    <CardDescription className='font-serif text-xl font-semibold'>{item.description}</CardDescription>
                   </div>
                   <div className="flex flex-col space-y-3">
                     <Image alt={item.name} src={item.image} width={80} height={80} />
@@ -109,7 +106,7 @@ const MedicinePage = () => {
                 </div>
               </CardContent>
               <CardFooter className="flex justify-between">
-                <h1 className='text-xl font-mono'>Suggested By: {item.suggested_by}</h1>
+                <h1 className='text-xl font-serif'>Suggested By: {item.suggested_by}</h1>
               </CardFooter>
             </Card>
           ))}
@@ -129,14 +126,14 @@ const MedicinePage = () => {
         <div>
           <Drawer>
             <DrawerTrigger asChild>
-              <Button className='w-[200px] h-[50px] font-mono text-xl bg-white text-black hover:bg-white
+              <Button className='w-[200px] h-[50px]  font-mono text-xl bg-blue-600 text-white
               '>Add Medicines</Button>
             </DrawerTrigger>
             <DrawerContent className='bg-white h-[650px]'>
               <div className='mx-auto w-full max-w-sm'>
                 <div className=' flex flex-col  gap-y-4 border-2 border-black w-full justify-center items-center p-3 h-50  rounded-3xl bg-blue-400 text-black mt-5'>
                   <div>
-                    <h1 className='text-xl font-serif font-semibold underline italic text-black'>Add Medicines Here...</h1>
+                    <h1 className='text-xl font-mono font-semibold underline italic text-black'>Add Medicines Here...</h1>
                   </div>
                   <div >
                     <form onSubmit={handleSubmit} className='flex flex-col gap-y-2 justify-center items-center p-3'>
@@ -180,6 +177,7 @@ const MedicinePage = () => {
                       <label htmlFor="image" className='mt-3 font-mono font-semibold'>Image:</label>
                       <input
                         type="file"
+                        accept='image/*'
                         id="image"
                         name="image"
                         onChange={(e) => {

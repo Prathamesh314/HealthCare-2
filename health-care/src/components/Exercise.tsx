@@ -24,6 +24,8 @@ const Exercise = () => {
     FetchFromApi("bodyPart", lowercase)
     .then((response)=>setGifBody(response))
   }, [BodyPart]);
+
+  console.log(BodyPart)
   
   const handleOnClick = (items: any) =>{
     setBodyPart(items.name);

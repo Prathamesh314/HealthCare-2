@@ -41,8 +41,9 @@ const AppointmentPage = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+  
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async () => {
     await createAppointment(formData);
   };
 
@@ -59,7 +60,7 @@ const AppointmentPage = () => {
           </thead>
           <tbody>
             {appointmenData.map((appointment, index) => (
-              <tr key={appointment.index} className="border-b">
+              <tr key={index} className="border-b">
                 <td className="py-2 px-4 border-r">{new Date(appointment.appointment_date).toLocaleString()}</td>
                 <td className="py-2 px-4 border-r">{appointment.topic}</td>
                 <td className="py-2 px-4">{appointment.docName}</td>
@@ -123,7 +124,7 @@ const AppointmentPage = () => {
                 </label>
                 <br />
                 <div className='flex justify-center items-center w-full'>
-                  <button type="submit" className='bg-blue-300 border-blue-800 border w-[80px] h-[40px] rounded-3xl'>Submit</button>
+                  <button type="submit" className='bg-blue-300 border-blue-800 border w-[80px] h-[40px] rounded-3xl' onClick={handleSubmit}>Submit</button>
                 </div>
               </form>
             </div>

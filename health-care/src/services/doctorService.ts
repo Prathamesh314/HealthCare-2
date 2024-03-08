@@ -13,7 +13,6 @@ interface DoctorInterface{
 interface LoginData{
     email: string,
     password: string,
-    role: string,
 }
 
 export async function DoctorSignup(doctor: DoctorInterface)

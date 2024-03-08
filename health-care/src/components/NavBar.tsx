@@ -25,7 +25,7 @@ const navcomponents = [
   },
   {
     name:"Register",
-    link: "/register",
+    link: "/userSignup",
   },
   
 ]
